@@ -93,6 +93,30 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        //Copied this from above function because it seems that it would work
+        //I think this makes a hashmap of class arraylist called jobs
+        //and I think this is used to store results
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        //Iterates through array of jobs
+        for (HashMap<String, String> row : allJobs) {
+
+            for(String column : row.keySet()){
+                //placeholder string to hold the column's contents to compare to other results
+                String columnContents = row.get(column);
+
+                //Checks if the placeholder string contains the search query and if previous
+                //entries into the search results equal are equal to search
+                if(columnContents.toLowerCase().contains(value.toLowerCase()) && !jobs.contains(row)){
+                    //adds current entry into results if both return true
+
+                    jobs.add(row);
+
+                    //Breaks search loop after result is found
+                    break;
+                }
+            }
+        }
 
         // TODO - implement this method
         return null;

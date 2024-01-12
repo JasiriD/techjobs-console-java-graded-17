@@ -119,7 +119,39 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        //Returns "No Results" if someJobs is empty
+        if (someJobs.isEmpty()) {
+            System.out.print("No Results");
+        }
+        //Rest of the function
+        else {
+            //for loop that iterates through each entry in someJobs
+            for (HashMap<String, String> job : someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+                //Entering a new line for each job entry
+                System.out.print("\n");
+                System.out.println("*****");
+
+                //Nested for loop to iterate through each hashmap
+                //Telling the truth, I don't really understand the map command with the .entry or .entryset,
+                //I found these in code examples online and copied them and they worked
+                for (Map.Entry<String, String> entry : job.entrySet()) {
+                    //setting temp string values to the keys and values in hashmap (Keys coorespond to
+                    //position, name etc and are the same for every entry, values store specific info
+                    //on each job)
+                    String column = entry.getKey();
+                    String value = entry.getValue();
+                    //printing those temp strings to the final output
+                    System.out.println(column + ": " + value);
+
+                }
+                //Ending line for each job entry
+                System.out.print("*****");
+                System.out.print("\n");
+            }
+
+            //og thing because I dont like to delete code
+            //System.out.println("printJobs is not implemented yet");
+        }
     }
 }
