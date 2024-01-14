@@ -75,7 +75,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -109,7 +109,6 @@ public class JobData {
                 //entries into the search results equal are equal to search
                 if(columnContents.toLowerCase().contains(value.toLowerCase()) && !jobs.contains(row)){
                     //adds current entry into results if both return true
-
                     jobs.add(row);
 
                     //Breaks search loop after result is found
@@ -119,7 +118,7 @@ public class JobData {
         }
 
         // TODO - implement this method
-        return null;
+        return jobs;
     }
 
     /**
